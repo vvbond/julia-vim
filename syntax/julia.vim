@@ -338,10 +338,17 @@ syntax region  juliaCommentL		matchgroup=juliaCommentDelim start="#\ze\%([^=]\|$
 syntax region  juliaCommentM		matchgroup=juliaCommentDelim start="#=\ze\%([^#]\|$\)" end="=#" contains=juliaTodo,juliaCommentM,@juliaSpellcheckComments
 syntax keyword juliaTodo		contained TODO FIXME XXX
 
+" Sections and cells
+syntax match juliaSectionTitle "^##.*$"
+syntax match juliaCellTitle "^#%%.*$"
 
 " the following are disabled by default, but
 " can be enabled by entering e.g.
 "   :hi link juliaParDelim Delimiter
+
+hi def link juliaSectionTitle Type
+hi def link juliaCellTitle SpecialComment
+
 hi def link juliaParDelim		juliaNone
 hi def link juliaSemicolon		juliaNone
 hi def link juliaComma			juliaNone
